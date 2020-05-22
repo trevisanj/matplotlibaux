@@ -24,10 +24,7 @@ setup(
     author='Julio Trevisan',
     author_email='juliotrevisan@gmail.com',
     url='https://github.com/trevisanj/matplotlibaux',
-    keywords= ['matplotlib', ],
-    install_requires=[],
+    keywords= [],
+    install_requires=['matplotlib', 'pyqt5'],
     scripts=scripts
 )
-
-
-# TODO later install_requires=['numpy', 'matplotlib', 'pyqt5'],  # matplotlib never gets installed correctly by pip, but anyway...
