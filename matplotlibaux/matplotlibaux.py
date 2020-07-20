@@ -40,6 +40,8 @@ def set_figure_size(fig, width, height):
 
     Reference: https://github.com/matplotlib/matplotlib/issues/2305/
     """
+    if fig is None:
+        fig = plt.gcf()
     dpi = float(fig.get_dpi())
     fig.set_size_inches(float(width) / dpi, float(height) / dpi)
 
