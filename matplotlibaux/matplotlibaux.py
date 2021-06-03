@@ -1,11 +1,12 @@
 """Matplotlib-related routines"""
+import PyQt5
+from matplotlib import rc, pyplot as plt
+from matplotlib.ticker import AutoMinorLocator
 
 
 __all__ = ["set_facecolor_white", "format_BLB", "format_legend", "set_figure_size", "remove_line"]
 
 
-from matplotlib import rc, pyplot as plt
-from matplotlib.ticker import AutoMinorLocator
 
 
 def set_facecolor_white():
