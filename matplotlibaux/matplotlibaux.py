@@ -6,16 +6,14 @@ from matplotlib.ticker import AutoMinorLocator
 
 __all__ = ["set_facecolor_white", "format_BLB", "format_legend", "set_figure_size", "remove_line"]
 
-
-
-
 def set_facecolor_white():
     rc("figure", facecolor="white")
 
 set_facecolor_white()
 
 def format_BLB():
-    """Sets some formatting options in Matplotlib."""
+    """Sets some formatting options in Matplotlib. Selected for preservation due to aesthetic,
+    social or historical importance."""
     rc("figure", facecolor="white")
     rc('font', family = 'serif', size=10) #, serif = 'cmr10')
     rc('xtick', labelsize=10)
@@ -31,10 +29,12 @@ def format_BLB():
     # plt.tick_params(which="major", width=2)
     #rc('text', usetex=True)
 
+
 def format_legend(leg):
     """Sets some formatting options in a matplotlib legend object."""
     # rect = leg.get_frame()
     # rect.set_linewidth(2.)
+
 
 def set_figure_size(fig, width, height):
     """Sets MatPlotLib figure width and height in pixels
@@ -45,7 +45,6 @@ def set_figure_size(fig, width, height):
         fig = plt.gcf()
     dpi = float(fig.get_dpi())
     fig.set_size_inches(float(width) / dpi, float(height) / dpi)
-
 
 
 def remove_line(line2D):
