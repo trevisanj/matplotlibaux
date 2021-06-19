@@ -4,7 +4,8 @@ from matplotlib import rc, pyplot as plt
 from matplotlib.ticker import AutoMinorLocator
 
 
-__all__ = ["set_facecolor_white", "format_BLB", "format_legend", "set_figure_size", "remove_line"]
+__all__ = ["set_facecolor_white", "format_BLB", "format_legend", "set_figure_size", "remove_line", "thanksgod",
+           "show_maximized"]
 
 def set_facecolor_white():
     rc("figure", facecolor="white")
@@ -36,13 +37,12 @@ def format_legend(leg):
     # rect.set_linewidth(2.)
 
 
-def set_figure_size(fig, width, height):
+def set_figure_size(width, height):
     """Sets MatPlotLib figure width and height in pixels
 
     Reference: https://github.com/matplotlib/matplotlib/issues/2305/
     """
-    if fig is None:
-        fig = plt.gcf()
+    fig = plt.gcf()
     dpi = float(fig.get_dpi())
     fig.set_size_inches(float(width) / dpi, float(height) / dpi)
 
@@ -55,3 +55,24 @@ def remove_line(line2D):
     l = line2D.pop(0)
     l.remove()
     del l
+
+def thanksgod():
+    """Thanks God with capital "G" for this decent date/datetime/time x-labels."""
+    axis = plt.gca()
+    locator = mdates.AutoDateLocator(minticks=3, maxticks=7)
+    formatter = mdates.ConciseDateFormatter(locator)
+    axis.xaxis.set_major_locator(locator)
+    axis.xaxis.set_major_formatter(formatter)
+
+
+def show_maximized(flag_tight=True):
+    try:
+        mng = plt.get_current_fig_manager()
+        mng.frame.Maximize(True)
+    except AttributeError:
+        figManager = plt.get_current_fig_manager()
+        figManager.window.showMaximized()
+    if flag_tight:
+        fig = plt.gcf()
+        fig.set_tight_layout(True)
+    plt.show()
