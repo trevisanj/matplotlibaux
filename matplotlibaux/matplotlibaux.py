@@ -1,16 +1,18 @@
 """Matplotlib-related routines"""
-import PyQt5
-from matplotlib import rc, pyplot as plt
-from matplotlib.ticker import AutoMinorLocator
-
 
 __all__ = ["set_facecolor_white", "format_BLB", "format_legend", "set_figure_size", "remove_line", "thanksgod",
            "show_maximized"]
 
+import PyQt5
+from matplotlib import rc, pyplot as plt
+from matplotlib.ticker import AutoMinorLocator
+from matplotlib import dates as mdates
+
+
 def set_facecolor_white():
     rc("figure", facecolor="white")
 
-set_facecolor_white()
+# TODO this was being called here, is this right? set_facecolor_white()
 
 def format_BLB():
     """Sets some formatting options in Matplotlib. Selected for preservation due to aesthetic,
