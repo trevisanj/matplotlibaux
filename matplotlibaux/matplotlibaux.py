@@ -67,7 +67,7 @@ def thanksgod():
     axis.xaxis.set_major_formatter(formatter)
 
 
-def show_maximized(flag_tight=True):
+def show_maximized(flag_tight=True, block=True):
     try:
         mng = plt.get_current_fig_manager()
         mng.frame.Maximize(True)
@@ -77,4 +77,4 @@ def show_maximized(flag_tight=True):
     if flag_tight:
         fig = plt.gcf()
         fig.set_tight_layout(True)
-    plt.show()
+    plt.show(block=block)
