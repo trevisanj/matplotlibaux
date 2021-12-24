@@ -1,7 +1,7 @@
 """Matplotlib-related routines"""
 
 __all__ = ["set_facecolor_white", "format_BLB", "format_legend", "set_figure_size", "remove_line", "thanksgod",
-           "show_maximized"]
+           "show_maximized", "set_window_title"]
 
 import PyQt5
 from matplotlib import rc, pyplot as plt
@@ -78,3 +78,8 @@ def show_maximized(flag_tight=True, block=True):
         fig = plt.gcf()
         fig.set_tight_layout(True)
     plt.show(block=block)
+
+
+def set_window_title(title):
+    fig = plt.gcf()
+    fig.canvas.manager.set_window_title(title)
