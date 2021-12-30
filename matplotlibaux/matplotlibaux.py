@@ -1,12 +1,13 @@
 """Matplotlib-related routines"""
 
 __all__ = ["set_facecolor_white", "format_BLB", "format_legend", "set_figure_size", "remove_line", "thanksgod",
-           "show_maximized", "set_window_title"]
+           "show_maximized", "set_window_title", "sca"]
 
 import PyQt5
 from matplotlib import rc, pyplot as plt
 from matplotlib.ticker import AutoMinorLocator
 from matplotlib import dates as mdates
+from matplotlib import _pylab_helpers
 
 
 def set_facecolor_white():
@@ -83,3 +84,18 @@ def show_maximized(flag_tight=True, block=True):
 def set_window_title(title):
     fig = plt.gcf()
     fig.canvas.manager.set_window_title(title)
+
+
+def sca(ax):
+    """
+    Set the current Axes instance to *ax*.
+
+    The current Figure is updated to the parent of *ax*.
+    """
+    managers = _pylab_helpers.Gcf.get_all_fig_managers()
+    for m in managers:
+        if ax in m.canvas.figure.axes:
+            _pylab_helpers.Gcf.set_active(m)
+            m.canvas.figure.sca(ax)
+            return
+    raise ValueError("Axes instance argument was not found in a figure")
