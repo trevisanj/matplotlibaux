@@ -37,7 +37,9 @@ def base642imgtag(base64str):
     return "".join(['<img src="data:image/png;base64,', base64str, '">'])
 
 
-def fig2imgtag(fig, flag_close=True):
+def fig2imgtag(fig=None, flag_close=True):
+    if fig is None:
+        fig = plt.gcf()
     return base642imgtag(fig2base64(fig, flag_close))
 
 
