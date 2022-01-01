@@ -99,3 +99,5 @@ def sca(ax):
             m.canvas.figure.sca(ax)
             return
     raise ValueError("Axes instance argument was not found in a figure")
+
+

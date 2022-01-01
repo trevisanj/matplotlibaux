@@ -9,4 +9,5 @@ if not 'matplotlib.backends' in sys.modules:
     del init_agg
 
 from .matplotlibaux import *
+from .base64stuff import *
 del sys
