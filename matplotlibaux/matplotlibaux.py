@@ -50,14 +50,15 @@ def set_figure_size(width, height):
     fig.set_size_inches(float(width) / dpi, float(height) / dpi)
 
 
-def remove_line(line2D):
+def remove_line(lines2D):
     """
     Removes line from matplotlib plot.
     # http://stackoverflow.com/questions/4981815/how-to-remove-lines-in-a-matplotlib-plot
     """
-    l = line2D.pop(0)
+    l = lines2D.pop(0)
     l.remove()
     del l
+
 
 def thanksgod():
     """Thanks God with capital "G" for this decent date/datetime/time x-labels."""
