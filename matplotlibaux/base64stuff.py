@@ -1,4 +1,4 @@
-__all__ = ["fig2base64", "file2base64", "base642imgtag", "fig2imgtag", "fileobj2base64",]
+__all__ = ["fig2base64", "file2base64", "base642imgtag", "fig2imgtag", "fileobj2base64", "file2imgtag"]
 """
 Not everything is matplotlib-based, but whatever
 """
@@ -36,6 +36,9 @@ def file2base64(filepath):
 def base642imgtag(base64str):
     return "".join(['<img src="data:image/png;base64,', base64str, '">'])
 
+
+def file2imgtag(filepath):
+    return base642imgtag(file2base64(filepath))
 
 def fig2imgtag(fig=None, flag_close=True):
     if fig is None:
