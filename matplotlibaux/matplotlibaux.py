@@ -13,7 +13,6 @@ from matplotlib import _pylab_helpers
 def set_facecolor_white():
     rc("figure", facecolor="white")
 
-# TODO this was being called here, is this right? set_facecolor_white()
 
 def format_BLB():
     """Sets some formatting options in Matplotlib. Selected for preservation due to aesthetic,
